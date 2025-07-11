@@ -50,7 +50,7 @@ const Home = () => {
                 <Link to="/Dashboard" className="btn btn-warning px-4 py-2 fw-bold">
                   Student Dashboard
                 </Link>
-                <Link to="/About" className="btn btn-dark px-4 py-2 fw-semibold">
+                <Link to="https://www.caluniv.ac.in/academic/Compsc.html" className="btn btn-dark px-4 py-2 fw-semibold">
                   About the Department
                 </Link>
               </div>
