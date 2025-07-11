@@ -33,11 +33,12 @@ A full-stack student dashboard web application for the Department of Computer Sc
 
 ---
 
-## 🔧 Setup Instructions
+🔧 Backend Setup
+cd backend
+npm install
+npm start
 
-### 🖥️ Backend
-
-1. Navigate to `server/` directory
-2. Install dependencies:
-   ```bash
-   npm install
+🌐 Frontend Setup
+cd frontend
+npm install
+npm run dev
