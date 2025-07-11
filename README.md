@@ -33,11 +33,6 @@ A full-stack student dashboard web application for the Department of Computer Sc
 
 ---
 
-## 🧑‍💻 Folder Structure
-
-
----
-
 ## 🔧 Setup Instructions
 
 ### 🖥️ Backend
