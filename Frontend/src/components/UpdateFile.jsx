@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from "./Nav";
 import Footer from "./Footer";
+import Sidebar from './Sidebar';
 
 const UpdateFiles = () => {
   const [photo, setPhoto] = useState("");
@@ -101,80 +102,89 @@ const UpdateFiles = () => {
   return (
     <>
       <Nav />
-      <div className="container my-5" style={{ minHeight: "100vh" }}>
-        <div className="card shadow p-4 mx-auto" style={{ maxWidth: "700px" }}>
-          <h3 className="text-center mb-4">Upload Files</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                value={userEmail}
-                readOnly
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Upload Photo (50KB - 200KB)</label>
-              <input
-                type="file"
-                accept="image/*"
-                className="form-control"
-                onChange={handlePhotoChange}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Upload Signature (50KB - 200KB)</label>
-              <input
-                type="file"
-                accept="image/*"
-                className="form-control"
-                onChange={handleSignatureChange}
-                required
-              />
-            </div>
 
-            <h5 className="mt-4">Upload Result(s)</h5>
-            <small className="text-muted mb-2 d-block">
-              Allowed: Image/PDF (50KB - 200KB each)
-            </small>
+      {/* Layout wrapper */}
+      <div className="d-flex flex-column flex-md-row">
+        {/* Sidebar */}
+        <Sidebar />
 
-            {results.map((_, index) => (
-              <div className="mb-3 d-flex align-items-center" key={index}>
+        {/* Main Content */}
+        <div className="flex-grow-1 p-4" style={{ background: "#f8f9fa", minHeight: "100vh" }}>
+          <div className="card shadow p-4 mx-auto" style={{ maxWidth: "700px" }}>
+            <h3 className="text-center mb-4">Upload Files</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  value={userEmail}
+                  readOnly
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Upload Photo (50KB - 200KB)</label>
                 <input
                   type="file"
+                  accept="image/*"
                   className="form-control"
-                  accept="image/*,application/pdf"
-                  onChange={(e) => handleResultChange(index, e)}
-                  required={!results[index]}
+                  onChange={handlePhotoChange}
+                  required
                 />
-                <button
-                  type="button"
-                  className="btn btn-outline-danger btn-sm ms-2"
-                  onClick={() => removeResultInput(index)}
-                >
-                  Remove
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Upload Signature (50KB - 200KB)</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="form-control"
+                  onChange={handleSignatureChange}
+                  required
+                />
+              </div>
+
+              <h5 className="mt-4">Upload Result(s)</h5>
+              <small className="text-muted mb-2 d-block">
+                Allowed: Image/PDF (50KB - 200KB each)
+              </small>
+
+              {results.map((_, index) => (
+                <div className="mb-3 d-flex align-items-center" key={index}>
+                  <input
+                    type="file"
+                    className="form-control"
+                    accept="image/*,application/pdf"
+                    onChange={(e) => handleResultChange(index, e)}
+                    required={!results[index]}
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger btn-sm ms-2"
+                    onClick={() => removeResultInput(index)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+
+              <button
+                type="button"
+                className="btn btn-outline-secondary mb-3"
+                onClick={addResultInput}
+              >
+                Add Result
+              </button>
+
+              <div className="text-center">
+                <button type="submit" className="btn btn-primary mt-3">
+                  Submit
                 </button>
               </div>
-            ))}
-
-            <button
-              type="button"
-              className="btn btn-outline-secondary mb-3"
-              onClick={addResultInput}
-            >
-              Add Result
-            </button>
-
-            <div className="text-center">
-              <button type="submit" className="btn btn-primary mt-3">
-                Submit
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
+
       <Footer />
       <ToastContainer />
     </>

@@ -9,6 +9,14 @@ import Footer from './Footer';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
 import UpdateFile from './UpdateFile';
+import Sidebar from './Sidebar';
+import { BrowserRouter as Router } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+<Router>
+  <App />  {/* or your component tree */}
+</Router>
+
 
 
 function App() {
@@ -22,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Sidebar" element={<Sidebar />}/>
         <Route path="/UpdatePersonalInfo" element={<UpdatePersonalInfo />} />
         <Route path="/about" element={<About />} />
         <Route path="/UpdateFile" element={<UpdateFile />} />

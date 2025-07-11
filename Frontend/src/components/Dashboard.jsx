@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./Footer";
 import Nav from './Nav';
+import Sidebar from './Sidebar';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -82,23 +83,11 @@ const Dashboard = () => {
   return (
     <>
       <Nav />
-      <div className="d-md-none d-flex justify-content-between align-items-center bg-primary text-white px-3 py-2">
-        <h5 className="m-0">Dashboard</h5>
-        <button className="btn btn-sm btn-light" onClick={() => setSidebarOpen(!sidebarOpen)}>☰ Menu</button>
-      </div>
+      
+      
 
       <div className="d-flex flex-column flex-md-row">
-        {/* Sidebar */}
-        <div className={`bg-light border-end p-3 ${sidebarOpen ? 'd-block' : 'd-none'} d-md-block`} style={{ minWidth: '250px' }}>
-          <ul className="nav flex-column">
-            <li className="nav-item"><a href="#" className="nav-link active">Profile</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">My Account</a></li>
-            <li className="nav-item"><a href="/UpdatePersonalInfo" className="nav-link">Update Personal Info</a></li>
-            <li className="nav-item"><a href="/UpdateFile" className="nav-link">Update File</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">Change Password</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">My Receipts</a></li>
-          </ul>
-        </div>
+       <Sidebar/>
 
         {/* Main Content */}
         <div className="p-4 flex-grow-1">
